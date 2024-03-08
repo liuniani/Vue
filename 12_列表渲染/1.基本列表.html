@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+<body>
+<div id="root">
+<!--  遍历数组  -->
+    <h2>人员列表(遍历数组)</h2>
+    <ul>
+        <li v-for="(i,index) in personS" :key="i.id">
+            {{i.name}}-{{i.age}}
+        </li>
+    </ul>
+
+<!--  遍历对象  -->
+    <h2>汽车信息(遍历对象)</h2>
+    <ul>
+        <li v-for="(value,index) in car" :key="index">
+            {{index}}:{{value}}
+        </li>
+    </ul>
+
+    <!--  遍历字符串  -->
+    <h2>测试遍历字符串(用的少)</h2>
+    <ul>
+        <li v-for="(char,index) in str" :key="index">
+            {{char}}:{{index}}
+        </li>
+    </ul>
+
+    <!--  遍历指定次数  -->
+    <h2>测试遍历指定次数(用的少)</h2>
+    <ul>
+        <li v-for="(num,index) in 5" :key="index">
+            {{num}}:{{index}}
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    const vm = new Vue({
+        el: '#root',
+        data: {
+            personS:[
+                {id:'001',name:'张三',age:'18'},
+                {id:'002',name:'李四',age:'20'},
+                {id:'003',name:'王五',age:'22'},
+            ],
+            car:{
+                name:'AE86',
+                price:'100万',
+                color:'白色',
+
+            },
+            str:'ae86上山了',
+        }
+    })
+</script>
+
+</body>
+</html>
