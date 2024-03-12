@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //map函数 为数组中的每个元素都执行pow函数，并组成一个新数组
+    console.log("数组中所有元素的平方");
+    function pow(x){
+        return x*x;
+    }
+    var arr = [1,2,3,4,5,6,7,8,9,10];
+    console.log(arr.map(pow));
+    //Array的所有数子转为字符串
+    console.log("数组的所有数子转为字符串");
+    var arr1 = [1,2,3,4,5,6,];
+    console.log(arr1.map(String));
+
+    //reduce reduce()把结果继续和序列的下一个元素做累计计算，其效果[x1, x2, x3, x4].reduce(f) = f(f(f(x1, x2), x3), x4)
+    //array求合
+    var arr2 = [1,2,3,4,5,6,7,8,9,10];
+    console.log(arr2.reduce(function(a,b){
+        return a+b;
+    }));
+    //reduce()求积
+    var arr3 = [1,2,3,4];
+    console.log(arr3.reduce(function(a,b){
+        return a*b;
+    }));
+    //reduce()求最大值
+    var arr4 = [1,2,3,4,5,6,7,8,9,10];
+    console.log(arr4.reduce(function(a,b){
+        return a>b?a:b;
+    }));
+    //reduce()求最小值
+    var arr5 = [1,2,3,4,5,6,7,8,9,10];
+    console.log(arr5.reduce(function(a,b){
+        return a<b?a:b;
+    }));
+    //deduce()把数组变成整数
+    var arr6 = [1,3,5,7,9];
+    console.log(
+        arr.reduce(function(x,y){
+            return x*10+y;
+        })
+    ) ;
+
+
+
+
+    //filter 过滤
+    //filter()把传入的函数依次作用于每个元素，然后根据返回值是true还是false决定保留还是丢弃该元素。
+
+    //例如，在一个Array中，删掉偶数，只保留奇数，可以这么写：
+    console.log(" filter过滤Array中，删掉偶数，只保留奇数，");
+    var arr7 = [1,2,3,4,5,6,7,8,9,10];
+    console.log(arr7.filter(function(x){
+        return x%2 !==0;
+    }));
+
+    //把array中的空字符串删除
+    var arr7 = ['a','','b',null,'c',undefined,'d','e',null,''];
+    console.log(arr7.filter(function(s){
+        return s&& s.trim();
+    }));
+
+    //filter()接收的回调函数，其实可以有多个参数。通常我们仅使用第一个参数，表示Array的某个元素。
+    // 回调函数还可以接收另外两个参数，表示元素的位置和数组本身：
+    var arr8 = ['A', 'B', 'C'];
+    var r = arr8.filter(function(element,index,self){
+        console.log(element);
+        console.log(index);
+        //console.log(self);
+        return true;
+    })
+    //filter() 函数去重
+    var
+        r,
+        arr = ['apple', 'strawberry', 'banana', 'pear', 'apple', 'orange', 'orange', 'strawberry'];
+    r = arr.filter(function (element, index, self) {
+        return self.indexOf(element) === index;
+    });
+    console.log(r);
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
